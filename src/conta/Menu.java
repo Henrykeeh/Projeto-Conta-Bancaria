@@ -96,8 +96,8 @@ public class Menu {
 	public static void sobre() {
 		System.out.println("\n*********************************************************");
 		System.out.println("Projeto Desenvolvido por: Carlos Henrique da Silva Barbosa");
-		System.out.println("Generation Brasil - generation@generation.org");
-		System.out.println("github.com/conteudoGeneration");
+		System.out.println("c.henrique.silvabarbosa@gmail.com");
+		System.out.println("https://github.com/Henrykeeh");
 		System.out.println("*********************************************************");
 	}
 
