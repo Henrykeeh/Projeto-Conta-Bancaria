@@ -2,7 +2,7 @@ package conta.model;
 
 import conta.util.Cores;
 
-public class Conta {
+public abstract class Conta {
 
 	private int numero;
 	private int agencia;
@@ -86,8 +86,8 @@ public class Conta {
 			break;
 		}
 
-		System.out.println(
-				Cores.TEXT_RED_BOLD + "\n\n***********************************************************" + Cores.TEXT_RESET);
+		System.out.println(Cores.TEXT_RED_BOLD + "\n\n***********************************************************"
+				+ Cores.TEXT_RESET);
 		System.out.println("Dados da Conta:");
 		System.out.println(
 				Cores.TEXT_RED_BOLD + "***********************************************************" + Cores.TEXT_RESET);
