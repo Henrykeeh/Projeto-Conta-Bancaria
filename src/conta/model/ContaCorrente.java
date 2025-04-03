@@ -20,7 +20,7 @@ public class ContaCorrente extends Conta {
 	@Override
 	public boolean sacar(float valor) {
 		if (this.getSaldo() + this.getLimite() < valor) {
-			System.out.println("\n Saldo insuficiente!");
+			System.out.println("\nSaldo insuficiente!");
 			return false;
 		}
 

@@ -19,7 +19,7 @@ public class ContaController implements ContaRepository {
 		}
 
 		else {
-			System.out.println("A conta número: " + numero + " não foi encontrada!");
+			System.out.println("\nA conta número: " + numero + " não foi encontrada!");
 		}
 	}
 
@@ -60,27 +60,60 @@ public class ContaController implements ContaRepository {
 
 		if (conta != null) {
 			if (listaContas.remove(conta) == true) {
-				System.out.println("A conta número: " + numero + " foi removida com sucesso!");
+				System.out.println("\nA conta número: " + numero + " foi removida com sucesso!");
 			}
 
 		} else {
-			System.out.println("A conta número: " + numero + " não foi encontrada!");			
+			System.out.println("\nA conta número: " + numero + " não foi encontrada!");
 		}
-		
+
 	}
 
 	@Override
 	public void sacar(int numero, float valor) {
+		var conta = buscarNaCollection(numero);
 
+		if (conta != null) {
+
+			if (conta.sacar(valor) == true) {
+				System.out.println("\nO saque na conta número :" + numero + " foi efetuado com sucesso!");
+			}
+			
+		} else {
+			System.out.println("\nA conta número: " + numero + " não foi encontrada!");
+		}
 	}
 
 	@Override
 	public void depositar(int numero, float valor) {
+		var conta = buscarNaCollection(numero);
+
+		if (conta != null) {
+			conta.depositar(valor);
+
+			System.out.println("\nO deposito na conta número: " + numero + " foi efetuado com sucesso!");
+
+		} else {
+			System.out.println("\nA conta número: " + numero + " não foi encontrada!");
+		}
 
 	}
 
 	@Override
 	public void transferir(int numeroOrigem, int numeroDestino, float valor) {
+		var contaOrigem = buscarNaCollection(numeroOrigem);
+		var contaDestino = buscarNaCollection(numeroDestino);
+
+		if (contaOrigem != null && contaDestino != null) {
+			if (contaOrigem.sacar(valor) == true) {
+				contaDestino.depositar(valor);
+
+				System.out.println("\nA transferência foi efetuada com sucesso!");
+			}
+			
+		} else {
+			System.out.println("A conta de Origem e/ou Destino não foram encontradas!");
+		}
 
 	}
 
